@@ -1,9 +1,10 @@
 <?php
 
 include_once substr(getcwd(), 0, 26) . '\entity\componentes.php';
+include_once substr(getcwd(), 0, 26) . '\entity\caracteristicas_pantalla.php';
 include_once substr(getcwd(), 0, 26) . '\mapper\componentesMapper.php';
 include_once substr(getcwd(), 0, 26) . '\core\Render.php';
-
+include_once 'caracteristicas_pantallaController.php';;
 class componentesController {
 
     /**
@@ -12,10 +13,35 @@ class componentesController {
      *
      */
     public function crear() {
-        var_dump($_POST['data']);
-//        $componentes = new componentes($_POST['data']);
-//        $componentesMapper = new componentesMapper();
-//        var_dump($componentesMapper->crearcomponentes($componentes));
+        $componentes = new componentes($_POST['data']);
+        switch ($_POST['tipoComponente']) {
+            case 0:
+                # code...
+                break;
+            case 1:
+                $pantallaController = new caracteristicas_pantallaController();
+                $ff = $pantallaController->crear();
+                echo 'mi primer id'.$ff;
+                break;
+            case 0:
+                # code...
+                break;
+            case 0:
+                # code...
+                break;
+            case 0:
+                # code...
+                break;
+            case 0:
+                # code...
+                break;        
+            default:
+                # code...
+                break;
+        }
+        
+        $componentesMapper = new componentesMapper();
+        var_dump($componentesMapper->crearcomponentes($componentes));
     }
 
     public function listar() {

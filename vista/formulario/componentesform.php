@@ -38,7 +38,7 @@ switch ($data['tipo']) {
 
     <input type="date" name="fecha_compra" value="" placeholder="fecha_compra" />
 
-    <input type="text" name="tipo_componente_id" value="<?php echo $tipo ?>" placeholder="tipo_componente_id"  hidden="true"/>
+    <input type="text" name="tipo_componente_id" value="<?php echo $data['tipo'] ?>" placeholder="tipo_componente_id"  hidden="true"/>
 
     <?php
     include_once $tipo;
@@ -86,22 +86,23 @@ switch ($data['tipo']) {
         event.preventDefault();
         cargar('componentes', 'crear');
         var dataString = $('#a').serializeArray();
+        var tipoComponente = $('input[name=tipo_componente_id]').val();
         dataString = ordenar(dataString);
-        enviar(dataString);
-;
+        enviar(dataString,tipoComponente);
 
     });
 
-    function enviar(dataString) {
+    function enviar(dataString,tipo) {
         $.ajax({
             type: 'post',
             data: {
-                'data': dataString
+                'data': dataString,
+                'tipoComponente': tipo
             },
             url: '/dist/' + controller + '/' + funcion
         })
                 .done(function (listas_rep) {
-                    alert(listas_rep);
+                  //  alert(listas_rep);
                     $('#diegp').html(listas_rep);
                 })
                 .fail(function () {
