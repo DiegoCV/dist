@@ -1,7 +1,7 @@
 <?php
 include_once 'caracteriscas_redform.php';
 ?>
-<select id="tipo_impresion">
+<select id="tipo_impresion" name="tipo_impresion">
 <?php
 include_once substr(getcwd(), 0, 26) . '\controller\tipo_impresionController.php';
 $var = new tipo_impresionController();
