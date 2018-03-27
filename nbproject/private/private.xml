@@ -3,10 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/dist/mapper/problemaMapper.php</file>
-            <file>file:/C:/xampp/htdocs/dist/vista/listados/problemaList.php</file>
+            <file>file:/C:/xampp/htdocs/dist/controller/caracteristicas_memoriaController.php</file>
+            <file>file:/C:/xampp/htdocs/dist/vista/formulario/componentesform.php</file>
+            <file>file:/C:/xampp/htdocs/dist/controller/caracteristicas_impresorasController.php</file>
+            <file>file:/C:/xampp/htdocs/dist/vista/formulario/caracteristicas_impresorasform.php</file>
+            <file>file:/C:/xampp/htdocs/dist/vista/assets/js/funciones.js</file>
+            <file>file:/C:/xampp/htdocs/dist/vista/formulario/caracteristicas_pantallaform.php</file>
+            <file>file:/C:/xampp/htdocs/dist/vista/formulario/caracteristicas_memoriaform.php</file>
             <file>file:/C:/xampp/htdocs/dist/vista/home.php</file>
-            <file>file:/C:/xampp/htdocs/dist/controller/problemaController.php</file>
         </group>
     </open-files>
 </project-private>
