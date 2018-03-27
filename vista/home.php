@@ -49,8 +49,6 @@ session_destroy();
         <link href=<?php Way::ruta('assets/css/pages.css') ?>  rel="stylesheet" type="text/css">
         <link href=<?php Way::ruta('assets/css/menu.css') ?>  rel="stylesheet" type="text/css">
         <link href=<?php Way::ruta('assets/css/responsive.css') ?>  rel="stylesheet" type="text/css">
-
-        <script src=<?php Way::ruta('assets/js/diego.js') ?>></script>
         <script src=<?php Way::ruta('assets/js/modernizr.min.js') ?>></script>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -191,44 +189,47 @@ session_destroy();
 
 
             <script>
+                
+                
                 $(document).ready(function () {
-            //       alert($('#ocultar_id').val());
-
-
-
-                    if ($('#ocultar_id').val() == '2') {
-
-                        document.getElementById('ocultar').style.display = "none"; // oculta equipos
-                        document.getElementById('ocultar_0').style.display = "none"; //oculta registrar mantenimiento
-                        document.getElementById('ocultar_1').style.display = ""; //oculta registrar personal
-                        document.getElementById('ocultar_2').style.display = ""; //oculta registrar calidad
-                    }
-                    if ($('#ocultar_id').val() == '3') {
-
-                        document.getElementById('ocultar').style.display = ""; // oculta equipos
-                        document.getElementById('ocultar_0').style.display = ""; //oculta registrar mantenimiento
-                        document.getElementById('ocultar_1').style.display = "none"; //oculta registrar personal
-                        document.getElementById('ocultar_2').style.display = "none"; //oculta registrar calidad
-                    }
-                    if ($('#ocultar_id').val() == '29') {
-
-
-
-                        document.getElementById('ocultar').style.display = ""; // oculta equipos
-                        document.getElementById('ocultar_0').style.display = ""; //oculta registrar mantenimiento
-                        document.getElementById('ocultar_1').style.display = ""; //oculta registrar personal
-                        document.getElementById('ocultar_2').style.display = ""; //oculta registrar calidad
-                    }
-            //    else{
-            //      
-            //        document.getElementById('ocultar').style.display= "none"; 
-            //        document.getElementById('ocultar_0').style.display= "none"; 
-            //        document.getElementById('ocultar_1').style.display= "none"; 
-            //        document.getElementById('ocultar_2').style.display= "none"; 
-            //    }
+                    //       alert($('#ocultar_id').val());
+//
+//
+//                    if ($('#ocultar_id').val() == '2') {
+//
+//                        document.getElementById('ocultar').style.display = "none"; // oculta equipos
+//                        document.getElementById('ocultar_0').style.display = "none"; //oculta registrar mantenimiento
+//                        document.getElementById('ocultar_1').style.display = ""; //oculta registrar personal
+//                        document.getElementById('ocultar_2').style.display = ""; //oculta registrar calidad
+//                    }
+//                    if ($('#ocultar_id').val() == '3') {
+//
+//                        document.getElementById('ocultar').style.display = ""; // oculta equipos
+//                        document.getElementById('ocultar_0').style.display = ""; //oculta registrar mantenimiento
+//                        document.getElementById('ocultar_1').style.display = "none"; //oculta registrar personal
+//                        document.getElementById('ocultar_2').style.display = "none"; //oculta registrar calidad
+//                    }
+//                    if ($('#ocultar_id').val() == '29') {
+//
+//
+////
+//                        document.getElementById('ocultar').style.display = ""; // oculta equipos
+//                        document.getElementById('ocultar_0').style.display = ""; //oculta registrar mantenimiento
+//                        document.getElementById('ocultar_1').style.display = ""; //oculta registrar personal
+//                        document.getElementById('ocultar_2').style.display = ""; //oculta registrar calidad
+//                        alert("HP");
+//                    }
+                    //    else{
+                    //      
+//                            document.getElementById('ocultar').style.display= "none"; 
+//                            document.getElementById('ocultar_0').style.display= "none"; 
+//                            document.getElementById('ocultar_1').style.display= "none"; 
+//                            document.getElementById('ocultar_2').style.display= "none"; 
+                    //    }
 
                 });
             </script>
+
         </header>
 
         <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none">
@@ -332,15 +333,15 @@ session_destroy();
 
                                                 <button type="button" class="btn btn-primary dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="false">Mostrar <span class="m-l-5"><i class="fa fa-cog"></i></span></button>
                                                 <ul class="dropdown-menu" role="menu">
-                                                    <li><a href="#">Todos las Solicitudes</a></li>
+                                                    <li><a href="#" id="allP">Todos las Solicitudes</a></li>
                                                     <li class="divider"></li>
-                                                    <li><a href="#">Solicitudes Pendientes</a></li>
-                                                    <li><a href="#">Solicitudes Cerradas</a></li>
+                                                    <li><a href="#" id="penP">Solicitudes Pendientes</a></li>
+                                                    <li><a href="#" id="cerP">Solicitudes Cerradas</a></li>
                                                     <li class="divider"></li>
 
                                                 </ul>
                                             </div>
-                                            <h3 class="panel-title">Solicitudes Pendientes</h3>
+                                            <h3 class="panel-title">Solicitudes</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -425,7 +426,10 @@ session_destroy();
 
 
                   <!--<script type="text/javascript" src="assets/js/tipo_pantalla.js"></script>--> 
-        <script type="text/javascript" src="assets/js/funciones.js"></script> 
+        <!-- 
+            LE DOCUMENTE ESTA MARICADA
+
+            <script type="text/javascript" src="assets/js/funciones.js"></script> --> 
 
 
         <!-- jQuery  -->
@@ -459,58 +463,64 @@ session_destroy();
         <script src="assets/pages/datatables.init.js"></script>
 
         <script src="assets/js/jquery.app.js"></script>
+        <script type="text/javascript" >
+           //AQUI AGREGUE ESTO RECORDAR QUITARLO
+                        document.getElementById('ocultar').style.display = ""; // oculta equipos
+                        document.getElementById('ocultar_0').style.display = ""; //oculta registrar mantenimiento
+                        document.getElementById('ocultar_1').style.display = ""; //oculta registrar personal
+                        document.getElementById('ocultar_2').style.display = ""; //oculta registrar calidad
+               
+        </script>
 
-
-        <script type="text/javascript">
-            $(document).ready(function () {
-
-                if ($('#ocultar_id').val() == '2' || $('#ocultar_id').val() == '3' || $('#ocultar_id').val() == '29') {
-
-                    var codID = $('#codID').val();
-                    $.post("/dist/problema/listar",
-                            {
-                                cod: codID
-
-                            },
-                    function (data, status) {
-                        $('#pro').html(data);
+        <!-- ESTA COSA LISTA TODOS LOS EQUIPOS POR USUARIO
+                <script type="text/javascript">
+                    $(document).ready(function () {
+        
+                        if ($('#ocultar_id').val() == '2' || $('#ocultar_id').val() == '3' || $('#ocultar_id').val() == '29') {
+        
+                            var codID = $('#codID').val();
+                            $.post("/dist/problema/listar",
+                                    {
+                                        cod: codID
+        
+                                    },
+                            function (data, status) {
+                                $('#pro').html(data);
+                            });
+                        }
+        
+        
+                        else {
+                            var codID = $('#ocultar_id').val();
+                            $.post("/dist/problema/listar",
+                                    {
+                                        cod: codID
+        
+                                    },
+                            function (data, status) {
+                                $('#pro').html(data);
+                            });
+                        }
+        
                     });
-                }
-
-
-                else {
-                    var codID = $('#ocultar_id').val();
-                    $.post("../controllers/problemas_list.php",
-                            {
-                                cod: codID
-
-                            },
-                    function (data, status) {
-                        $('#pro').html(data);
-                    });
-                }
-
-            });
-        </script> 
-
+                </script> 
+        -->
 
         <script>
 
-            function pantallaOnChange(sel) {
+                function pantallaOnChange(sel) {
 
-                if (sel.value == "1") {
+                    if (sel.value == "1") {
 
-                    divT = document.getElementById("nPantalla");
-                    divT.style.display = "";
+                        divT = document.getElementById("nPantalla");
+                        divT.style.display = "";
 
+                    } else {
+                        divT = document.getElementById("nPantalla");
+                        divT.style.display = "none";
+
+                    }
                 }
-
-                else {
-                    divT = document.getElementById("nPantalla");
-                    divT.style.display = "none";
-
-                }
-            }
         </script>
 
 
@@ -529,6 +539,7 @@ session_destroy();
                 })-->
 
     </body>
+    <script type="text/javascript" src=<?php Way::ruta('assets/js/soporte.js') ?>></script>
 
     <!-- Mirrored from moltran.coderthemes.com/menu_2/table-datatable.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 23 Oct 2017 05:07:58 GMT -->
 </html>

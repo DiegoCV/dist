@@ -54,7 +54,7 @@ class usuarioController {
         $usuario->setContraseña(md5($_POST['Contraseña']));
         $usuarioMapper = new usuarioMapper();
         $var = $usuarioMapper->validar($usuario);
-        //var_dump($var);
+        //var_dump($_POST['Contraseña']." ".md5($_POST['Contraseña']));
         if (empty($var)) {
             $render = new Render('index');
             $render->mostrar();

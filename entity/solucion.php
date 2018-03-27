@@ -6,20 +6,11 @@
  private $caracteristica ; 
   public function __construct(array $data = null) { 
  if (!is_null($data)) { 
-
-				            if (array_key_exists('id', $data)) { 
-
-				                $this->id = $data['id']; 
- 
-
-				            }
-
-				            $this->problema_idProblema = $data['problema_idProblema']; 
+$this->id = $data['idSolucion']; 
+$this->problema_idProblema = $data['problema_idProblema']; 
 $this->estados_solucion_id = $data['estados_solucion_id']; 
 $this->caracteristica = $data['caracteristica']; 
- 
-
-				        }
+ }
 
     }
 public function setid($id){ 

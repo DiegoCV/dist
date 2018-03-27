@@ -20,7 +20,7 @@ class problemaController {
     public function listar() {
         $problemaMapper = new problemaMapper();
         $problema = $problemaMapper->listarproblema();
-        $render = new Render('listados/problemaList', $problema);
+        $render = new Render('listados/problema/problemaList', $problema);
         $render->mostrar();
     }
 
@@ -47,11 +47,18 @@ class problemaController {
         $render->mostrar();
     }
     
-    public function listarProblemaSolucion() {
+    public function listarsolucionados() {
         $problemaMapper = new problemaMapper();
-        $problema = $problemaMapper->listarProblemaSolucion();
-        $render = new Render('listados/problemaList', $problema);
+        $problema = $problemaMapper->listarSolucionados();
+        $render = new Render('listados/problema/problemaListSolu', $problema);
         $render->mostrar();
     }
 
+    public function listarPendientes()
+    {
+         $problemaMapper = new problemaMapper();
+        $problema = $problemaMapper->listarProblemaPen();
+        $render = new Render('listados/problema/problemaList', $problema);
+        $render->mostrar();
+    }
 }

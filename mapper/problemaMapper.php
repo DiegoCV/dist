@@ -3,7 +3,8 @@
 include_once dirname(__FILE__) . '\Mapper.php';
 
 include_once substr(getcwd(), 0, 26) . '\entity\problema.php';
-
+include_once substr(getcwd(), 0, 26) . '\entity\solucion.php';
+include_once substr(getcwd(), 0, 26) . '\entity\estados_solucion.php';
 class problemaMapper extends Mapper {
 
     public function listarproblema() {
@@ -55,15 +56,33 @@ class problemaMapper extends Mapper {
         }
     }
 
-    public function listarProblemaSolucion() {
-        
-        $sql = "SELECT * FROM problema p INNER JOIN solucion s ON ( p.idProblema = s.problema_idProblema) INNER JOIN estados_solucion es ON (s.estados_solucion_id = es.id)";
+    public function listarProblemaPen()
+    {
+        $sql = "SELECT * FROM problema p LEFT JOIN solucion s ON ( p.idProblema = s.problema_idProblema) WHERE s.problema_idProblema IS NULL";
 
         $results = array();
 
         foreach ($this->db->query($sql) as $fila) {
 
             array_push($results, new problema($fila));
+        }
+
+        return $results;
+    }
+
+    public function listarSolucionados() {
+        
+        $sql = "SELECT * FROM problema p LEFT JOIN solucion s ON ( p.idProblema = s.problema_idProblema) INNER JOIN estados_solucion es ON (s.estados_solucion_id = es.id)";
+
+        $results = array();
+
+        foreach ($this->db->query($sql) as $fila) {
+            $s = new solucion($fila);
+            $e = new estados_solucion($fila);
+            $p = new problema($fila);
+            $s->setproblema_idProblema($p);
+            $s->setestados_solucion_id($e);
+            array_push($results, $s);
         }
 
         return $results;

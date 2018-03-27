@@ -2,13 +2,10 @@
     <thead>
         <tr>
             <th style="display:none;">id</th>
-            <th>Equipo</th>
+            <th>Id</th>
             <th>Problema</th>
-            <th>Fecha</th>
-            <th>Solucion</th>
-            <th>Fecha</th>
-            <th>Estado</th>
-
+            <th>IdEquipo</th>
+            <th>fecha registro</th>
         </tr>
     </thead>
     <tbody>
