@@ -5,7 +5,7 @@ function loading(rta) {
 
 //metodo para creacion de objecto ajax
 function ajax(url, datos, rta) {
-    var ajax = $.get(url, datos, function (respuesta) {
+    var ajax = $.post(url, datos, function (respuesta) {
         $(rta).html(respuesta);
     });
     return ajax;
@@ -18,10 +18,10 @@ function FormRegistrarPeriferico1(nit){
     ajax(url, datos, rta);
 }
 
-function FormRegistrarPeriferico()
+function FormRegistrarPeriferico(tipo)
 {
-    var url = "FormRegistrarPeriferico.php";
-    var datos = {};
+    var url = "/dist/componentes/crearForm";
+    var datos = {tipo:tipo};
     var rta = "#mostrarcontenido";
     ajax(url, datos, rta);
 }

@@ -152,14 +152,54 @@ session_destroy();
                             <li  id="ocultar" style="display: none" class="has-submenu">
                                 <a href="#"><i class="md md-palette "></i><span>  Equipos  </span> </a>
                                 <ul class="submenu">
-                                    <li><a onclick="FormRegistrarPeriferico();">Registrar Periferico</a></li>
+                                    <li class="has-submenu">
+                                        <a>
+                                            Registrar Periferico
+                                        </a>
+                                        <ul class="submenu">
+                                            <li>
+                                                <a onclick="FormRegistrarPeriferico(0);">
+                                                    Generico
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a onclick="FormRegistrarPeriferico(1);">
+                                                    Pantalla
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a onclick="FormRegistrarPeriferico(2);">
+                                                    Memoria
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a onclick="FormRegistrarPeriferico(3);">
+                                                    Disco
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a onclick="FormRegistrarPeriferico(4);">
+                                                    portatil
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a onclick="FormRegistrarPeriferico(5);">
+                                                    Todo en uno
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a onclick="FormRegistrarPeriferico(6);">
+                                                    Impresoras
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
                                     <li><a onclick="FormRegistrarEquipo();">Registrar Equipo</a></li>
                                     <li><a onclick="periferico_listar();">Listar Periferico</a></li>
                                     <li><a onclick="equipo_listar();">Listar Equipo</a></li>
                                     <li><a onclick="FormRegistrarCalendario();">Calendario Mantenimientos</a></li>
                                     <!--                                    <li><a href="periferico_listar.php">Listar Periferico</a></li>
                                                                         <li><a href="equipo_listar.php">Listar Equipo</a></li>-->
-
                                 </ul>
                             </li>
 
@@ -188,9 +228,9 @@ session_destroy();
 
 
 
-            <script>
-                
-                
+<!--            <script>
+
+
                 $(document).ready(function () {
                     //       alert($('#ocultar_id').val());
 //
@@ -228,7 +268,7 @@ session_destroy();
                     //    }
 
                 });
-            </script>
+            </script>-->
 
         </header>
 
@@ -426,10 +466,9 @@ session_destroy();
 
 
                   <!--<script type="text/javascript" src="assets/js/tipo_pantalla.js"></script>--> 
-        <!-- 
-            LE DOCUMENTE ESTA MARICADA
 
-            <script type="text/javascript" src="assets/js/funciones.js"></script> --> 
+
+        <script type="text/javascript" src=<?php Way::ruta('assets/js/funciones.js') ?>></script> 
 
 
         <!-- jQuery  -->
@@ -464,12 +503,12 @@ session_destroy();
 
         <script src="assets/js/jquery.app.js"></script>
         <script type="text/javascript" >
-           //AQUI AGREGUE ESTO RECORDAR QUITARLO
-                        document.getElementById('ocultar').style.display = ""; // oculta equipos
-                        document.getElementById('ocultar_0').style.display = ""; //oculta registrar mantenimiento
-                        document.getElementById('ocultar_1').style.display = ""; //oculta registrar personal
-                        document.getElementById('ocultar_2').style.display = ""; //oculta registrar calidad
-               
+                //AQUI AGREGUE ESTO RECORDAR QUITARLO
+                document.getElementById('ocultar').style.display = ""; // oculta equipos
+                document.getElementById('ocultar_0').style.display = ""; //oculta registrar mantenimiento
+                document.getElementById('ocultar_1').style.display = ""; //oculta registrar personal
+                document.getElementById('ocultar_2').style.display = ""; //oculta registrar calidad
+
         </script>
 
         <!-- ESTA COSA LISTA TODOS LOS EQUIPOS POR USUARIO
@@ -508,19 +547,19 @@ session_destroy();
 
         <script>
 
-                function pantallaOnChange(sel) {
+            function pantallaOnChange(sel) {
 
-                    if (sel.value == "1") {
+                if (sel.value == "1") {
 
-                        divT = document.getElementById("nPantalla");
-                        divT.style.display = "";
+                    divT = document.getElementById("nPantalla");
+                    divT.style.display = "";
 
-                    } else {
-                        divT = document.getElementById("nPantalla");
-                        divT.style.display = "none";
+                } else {
+                    divT = document.getElementById("nPantalla");
+                    divT.style.display = "none";
 
-                    }
                 }
+            }
         </script>
 
 
