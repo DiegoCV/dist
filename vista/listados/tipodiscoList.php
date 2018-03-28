@@ -1,32 +1,6 @@
-<div class="w3-container"> 
+<?php
+foreach ($this->datos as $key => $value) {
+ echo '<option value="' . $value->getid() . '">' . $value->gettipoDiscocol() . '</option>';
+}
+?>
 
-                    <h2>Queria listados? </h2>    
-
-                    <p>Pues se le tienen</p> 
-
-                <table class="w3-table w3-striped w3-border"> 
-
-                <tr> 
- <th>id</th>
-<th>tipoDiscocol</th>
-</tr>
-
-                     <?php
-
-                        for ($index = 0; $index < count($this->datos); $index++) {
-                            $tipodisco = $this->datos[$index];
-                            $var = '<tr>';$var .= '<td>'.$tipodisco->getid().'</td>';
-$var .= '<td>'.$tipodisco->gettipoDiscocol().'</td>';
-$var .= '</tr>';
-
-                            echo $var;
-
-                            $var = '';
-
-                        }
-
-                    ?>
-
-                     </table>
-
-                    </div>

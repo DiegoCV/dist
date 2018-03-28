@@ -31,13 +31,14 @@ class componentes {
             $this->serial = $data['serial'];
             $this->stiker_activo = $data['stiker_activo'];
             $this->fecha_compra = $data['fecha_compra'];
-//            $this->caracteristicas_pantalla_id = $data['caracteristicas_pantalla_id'];
-//            $this->caracteristicas_memoria_id = $data['caracteristicas_memoria_id'];
-//            $this->caracteristicas_disco_id = $data['caracteristicas_disco_id'];
-//            $this->caracteristicas_portatil_id = $data['caracteristicas_portatil_id'];
-//            $this->caracteristicas_todoenuno_id = $data['caracteristicas_todoenuno_id'];
             $this->tipo_componente_id = $data['tipo_componente_id'];
-//            $this->caracteristicas_impresoras_id = $data['caracteristicas_impresoras_id'];
+
+   $this->caracteristicas_pantalla_id = 'null';
+  $this->caracteristicas_memoria_id =   'null';
+  $this->caracteristicas_disco_id =  'null';
+  'null';$this->caracteristicas_portatil_id = 'null';
+  $this->caracteristicas_todoenuno_id =  'null';       
+  $this->caracteristicas_impresoras_id = 'null';
         }
     }
 
@@ -140,7 +141,7 @@ class componentes {
     }
 
     public function getcaracteristicas_pantalla_id() {
-        return $this->caracteristicas_pantalla_id;
+       return $this->caracteristicas_pantalla_id;
     }
 
     public function getcaracteristicas_memoria_id() {

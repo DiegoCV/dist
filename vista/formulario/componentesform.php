@@ -41,7 +41,9 @@ switch ($data['tipo']) {
     <input type="text" name="tipo_componente_id" value="<?php echo $data['tipo'] ?>" placeholder="tipo_componente_id"  hidden="true"/>
 
     <?php
+    if(!empty($tipo)){
     include_once $tipo;
+    }
     ?>
 
 <!--    <input type="text" name="caracteristicas_pantalla_id" value="" placeholder="caracteristicas_pantalla_id" />

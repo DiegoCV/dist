@@ -29,7 +29,8 @@ function FormRegistrarPeriferico(tipo)
 
 function FormRegistrarEquipo()
 {
-    var url = "FormRegistrarEquipo_1.php";
+    alert("AA");
+    var url = "/dist/equipo/crearForm";
     var datos = {};
     var rta = "#mostrarcontenido";
     ajax(url, datos, rta);

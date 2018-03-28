@@ -35,8 +35,8 @@ $tipo_componente_id = $componentes->gettipo_componente_id();
 $caracteristicas_impresoras_id = $componentes->getcaracteristicas_impresoras_id(); 
  
 
-        			$sql = "INSERT INTO componentes (Equipo_idEquipo,marca,modelo,serial,stiker_activo,fecha_compra,caracteristicas_pantalla_id,caracteristicas_memoria_id,caracteristicas_disco_id,caracteristicas_portatil_id,caracteristicas_todoenuno_id,tipo_componente_id,caracteristicas_impresoras_id) VALUES ('$Equipo_idEquipo','$marca','$modelo','$serial','$stiker_activo','$fecha_compra','$caracteristicas_pantalla_id','$caracteristicas_memoria_id','$caracteristicas_disco_id','$caracteristicas_portatil_id','$caracteristicas_todoenuno_id','$tipo_componente_id','$caracteristicas_impresoras_id')"; 
-
+        			$sql = "INSERT INTO componentes (Equipo_idEquipo,marca,modelo,serial,stiker_activo,fecha_compra,caracteristicas_pantalla_id,caracteristicas_memoria_id,caracteristicas_disco_id,caracteristicas_portatil_id,caracteristicas_todoenuno_id,tipo_componente_id,caracteristicas_impresoras_id) VALUES ($Equipo_idEquipo,'$marca','$modelo','$serial','$stiker_activo','$fecha_compra',$caracteristicas_pantalla_id,$caracteristicas_memoria_id,$caracteristicas_disco_id,$caracteristicas_portatil_id,$caracteristicas_todoenuno_id,'$tipo_componente_id',$caracteristicas_impresoras_id)"; 
+                    echo($sql);
         			$stmt   = $this->db->prepare($sql);
 
     				$result = $stmt->execute();
@@ -47,7 +47,7 @@ $caracteristicas_impresoras_id = $componentes->getcaracteristicas_impresoras_id(
 
 					    } else {
 
-					        echo "GUARDADOBIEN";
+					        return $this->db->lastInsertId();
 
 					    }
 
