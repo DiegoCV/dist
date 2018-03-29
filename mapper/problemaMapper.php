@@ -1,62 +1,63 @@
-<?php
+<?php 
 
-include_once dirname(__FILE__) . '\Mapper.php';
+            include_once dirname(__FILE__) . '\Mapper.php';
 
-include_once substr(getcwd(), 0, 26) . '\entity\problema.php';
-include_once substr(getcwd(), 0, 26) . '\entity\solucion.php';
-include_once substr(getcwd(), 0, 26) . '\entity\estados_solucion.php';
-class problemaMapper extends Mapper {
+            include_once substr(getcwd(), 0,26).'\entity\problema.php';
+ include_once substr(getcwd(), 0,26).'\entity\solucion.php';
+  include_once substr(getcwd(), 0,26).'\entity\estados_solucion.php';
+         class problemaMapper extends Mapper{  
+  public function listarproblema() {  
 
-    public function listarproblema() {
+						$sql = "SELECT idProblema, problema, Equipo_idEquipo, fecha_registro FROM problema" ;  
+				        
+				        $results = array();  
 
-        $sql = "SELECT idProblema, problema, Equipo_idEquipo, fecha_registro FROM problema";
+				        foreach ($this->db->query($sql) as $fila) { 
 
-        $results = array();
+				            array_push($results, new problema($fila)); 
 
-        foreach ($this->db->query($sql) as $fila) {
+				        } 
 
-            array_push($results, new problema($fila));
-        }
+				        return $results; 
 
-        return $results;
-    }
+			    	}    public function crearproblema(problema $problema) {
+$problema = $problema->getproblema(); 
+$Equipo_idEquipo = $problema->getEquipo_idEquipo(); 
+$fecha_registro = $problema->getfecha_registro(); 
+ 
 
-    public function crearproblema(problema $problema) {
-        $problema = $problema->getproblema();
-        $Equipo_idEquipo = $problema->getEquipo_idEquipo();
-        $fecha_registro = $problema->getfecha_registro();
+        			$sql = "INSERT INTO problema (problema,Equipo_idEquipo,fecha_registro) VALUES ('$problema','$Equipo_idEquipo','$fecha_registro')"; 
 
+        			$stmt   = $this->db->prepare($sql);
 
-        $sql = "INSERT INTO problema (problema,Equipo_idEquipo,fecha_registro) VALUES ('$problema','$Equipo_idEquipo','$fecha_registro')";
+    				$result = $stmt->execute();
 
-        $stmt = $this->db->prepare($sql);
+					    if (!$result) {
 
-        $result = $stmt->execute();
+					        throw new Exception("couldnotsaverecord");
 
-        if (!$result) {
+					    } else {
 
-            throw new Exception("couldnotsaverecord");
-        } else {
+					        echo "GUARDADOBIEN";
 
-            echo "GUARDADOBIEN";
-        }
-    }
+					    }
 
-    public function eliminar(problema $problema) {
-        $idProblema = $problema->getidProblema();
+					}
+public function eliminar(problema $problema) {
+                    $idProblema = $problema->getidProblema();
 
 
-        $sql = "DELETE FROM problema WHERE idProblema = $idProblema ";
-        $stmt = $this->db->prepare($sql);
-        $result = $stmt->execute();
-        if (!$result) {
-            throw new Exception("No se pudo eliminar");
-        } else {
-            echo "eliminado con exito";
-        }
-    }
+                    $sql = "DELETE FROM problema WHERE idProblema = $idProblema ";
+                    $stmt = $this->db->prepare($sql);
+                    $result = $stmt->execute();
+                    if (!$result) {
+                        throw new Exception("No se pudo eliminar");
+                    } else {
+                        echo "eliminado con exito";
+                    }
+                }
 
-    public function listarProblemaPen()
+                 public function listarProblemaPen()
     {
         $sql = "SELECT * FROM problema p LEFT JOIN solucion s ON ( p.idProblema = s.problema_idProblema) WHERE s.problema_idProblema IS NULL";
 
@@ -72,7 +73,7 @@ class problemaMapper extends Mapper {
 
     public function listarSolucionados() {
         
-        $sql = "SELECT * FROM problema p LEFT JOIN solucion s ON ( p.idProblema = s.problema_idProblema) INNER JOIN estados_solucion es ON (s.estados_solucion_id = es.id)";
+        $sql = "SELECT * FROM problema p LEFT JOIN solucion s ON ( p.idProblema = s.problema_idProblema) INNER JOIN estados_solucion es ON (s.estados_solucion_id = es.idEstados_solucion)";
 
         $results = array();
 
@@ -87,4 +88,4 @@ class problemaMapper extends Mapper {
 
         return $results;
     }
-}
+            }

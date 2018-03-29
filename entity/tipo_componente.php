@@ -1,13 +1,13 @@
 <?php 
   class tipo_componente{  
- private $id ; 
+ private $idTipo_componente ; 
  private $nombre ; 
   public function __construct(array $data = null) { 
  if (!is_null($data)) { 
 
 				            if (array_key_exists('id', $data)) { 
 
-				                $this->id = $data['id']; 
+				                $this->idTipo_componente = $data['idTipo_componente']; 
  
 
 				            }
@@ -18,16 +18,16 @@
 				        }
 
     }
-public function setid($id){ 
- $this->id = $id; 
+public function setidTipo_componente($idTipo_componente){ 
+ $this->idTipo_componente = $idTipo_componente; 
  return $this; 
 }
 public function setnombre($nombre){ 
  $this->nombre = $nombre; 
  return $this; 
 }
-public function getid(){ 
- return $this->id; 
+public function getidTipo_componente(){ 
+ return $this->idTipo_componente; 
 }
 public function getnombre(){ 
  return $this->nombre; 

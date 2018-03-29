@@ -2,6 +2,9 @@
 $data = $this->datos;
 $tipo = "";
 switch ($data['tipo']) {
+    case 0:
+        $tipo = "caracteristicas_pcform.php";
+    break;
     case 1:
         $tipo = "caracteristicas_pantallaform.php";
         break;
@@ -56,9 +59,10 @@ switch ($data['tipo']) {
 
     <input type="text" name="caracteristicas_todoenuno_id" value="" placeholder="caracteristicas_todoenuno_id" />
 
-   
+    <input type="text" name="caracteristicas_impresoras_id" value="" placeholder="caracteristicas_impresoras_id" />
 
-    <input type="text" name="caracteristicas_impresoras_id" value="" placeholder="caracteristicas_impresoras_id" />-->
+        <input type="text" name="caracteristicas_pc_idcaracteristicas_pc" value="" placeholder="caracteristicas_pc_idcaracteristicas_pc" />-->
+
     <input type="submit" value="Enviar" />
 </form>
 <div id="diegp"></div>

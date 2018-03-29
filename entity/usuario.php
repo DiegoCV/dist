@@ -1,6 +1,6 @@
 <?php 
   class usuario{  
- private $Id ; 
+ private $IdUsuario ; 
  private $Nombre ; 
  private $Contraseña ; 
  private $Estado ; 
@@ -9,14 +9,14 @@
   public function __construct(array $data = null) { 
  if (!is_null($data)) { 
 
-				            if (array_key_exists('Id', $data)) { 
+				            if (array_key_exists('id', $data)) { 
 
-				                $this->Id = $data['Id']; 
- 
+				                 
 
 				            }
 
-				            $this->Nombre = $data['Nombre']; 
+				            $this->IdUsuario = $data['IdUsuario']; 
+$this->Nombre = $data['Nombre']; 
 $this->Contraseña = $data['Contraseña']; 
 $this->Estado = $data['Estado']; 
 $this->correo = $data['correo']; 
@@ -26,8 +26,8 @@ $this->Cargo_id = $data['Cargo_id'];
 				        }
 
     }
-public function setId($Id){ 
- $this->Id = $Id; 
+public function setIdUsuario($IdUsuario){ 
+ $this->IdUsuario = $IdUsuario; 
  return $this; 
 }
 public function setNombre($Nombre){ 
@@ -50,8 +50,8 @@ public function setCargo_id($Cargo_id){
  $this->Cargo_id = $Cargo_id; 
  return $this; 
 }
-public function getId(){ 
- return $this->Id; 
+public function getIdUsuario(){ 
+ return $this->IdUsuario; 
 }
 public function getNombre(){ 
  return $this->Nombre; 

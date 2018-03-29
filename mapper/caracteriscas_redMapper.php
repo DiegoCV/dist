@@ -7,7 +7,7 @@
          class caracteriscas_redMapper extends Mapper{  
   public function listarcaracteriscas_red() {  
 
-						$sql = "SELECT id, ip, mascara, puerta_enlace, dns, dns2 FROM caracteriscas_red" ;  
+						$sql = "SELECT idCaracteriscas_red, ip, mascara, puerta_enlace, dns, dns2 FROM caracteriscas_red" ;  
 				        
 				        $results = array();  
 
@@ -45,10 +45,10 @@ $dns2 = $caracteriscas_red->getdns2();
 
 					}
 public function eliminar(caracteriscas_red $caracteriscas_red) {
-                    $id = $caracteriscas_red->getid();
+                    $idCaracteriscas_red = $caracteriscas_red->getidCaracteriscas_red();
 
 
-                    $sql = "DELETE FROM caracteriscas_red WHERE id = $id ";
+                    $sql = "DELETE FROM caracteriscas_red WHERE idCaracteriscas_red = $idCaracteriscas_red ";
                     $stmt = $this->db->prepare($sql);
                     $result = $stmt->execute();
                     if (!$result) {

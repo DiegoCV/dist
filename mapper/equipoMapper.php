@@ -7,7 +7,7 @@
          class equipoMapper extends Mapper{  
   public function listarequipo() {  
 
-						$sql = "SELECT idEquipo, usuario_Id, tipo_equipo_id, procesador, memoria, disco, caracteriscas_red_id FROM equipo" ;  
+						$sql = "SELECT idEquipo, usuario_Id, tipo_equipo_id, caracteriscas_red_id FROM equipo" ;  
 				        
 				        $results = array();  
 
@@ -22,13 +22,10 @@
 			    	}    public function crearequipo(equipo $equipo) {
 $usuario_Id = $equipo->getusuario_Id(); 
 $tipo_equipo_id = $equipo->gettipo_equipo_id(); 
-$procesador = $equipo->getprocesador(); 
-$memoria = $equipo->getmemoria(); 
-$disco = $equipo->getdisco(); 
 $caracteriscas_red_id = $equipo->getcaracteriscas_red_id(); 
  
 
-        			$sql = "INSERT INTO equipo (usuario_Id,tipo_equipo_id,procesador,memoria,disco,caracteriscas_red_id) VALUES ('$usuario_Id','$tipo_equipo_id','$procesador','$memoria','$disco','$caracteriscas_red_id')"; 
+        			$sql = "INSERT INTO equipo (usuario_Id,tipo_equipo_id,caracteriscas_red_id) VALUES ('$usuario_Id','$tipo_equipo_id','$caracteriscas_red_id')"; 
 
         			$stmt   = $this->db->prepare($sql);
 

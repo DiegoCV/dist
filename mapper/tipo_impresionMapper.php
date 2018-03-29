@@ -7,7 +7,7 @@
          class tipo_impresionMapper extends Mapper{  
   public function listartipo_impresion() {  
 
-						$sql = "SELECT id, tipo_impresion FROM tipo_impresion" ;  
+						$sql = "SELECT idTipo_impresion, tipo_impresion FROM tipo_impresion" ;  
 				        
 				        $results = array();  
 
@@ -41,10 +41,10 @@ $tipo_impresion = $tipo_impresion->gettipo_impresion();
 
 					}
 public function eliminar(tipo_impresion $tipo_impresion) {
-                    $id = $tipo_impresion->getid();
+                    $idTipo_impresion = $tipo_impresion->getidTipo_impresion();
 
 
-                    $sql = "DELETE FROM tipo_impresion WHERE id = $id ";
+                    $sql = "DELETE FROM tipo_impresion WHERE idTipo_impresion = $idTipo_impresion ";
                     $stmt = $this->db->prepare($sql);
                     $result = $stmt->execute();
                     if (!$result) {

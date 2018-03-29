@@ -7,7 +7,7 @@
          class cargoMapper extends Mapper{  
   public function listarcargo() {  
 
-						$sql = "SELECT Id, Nombre FROM cargo" ;  
+						$sql = "SELECT IdCargo, Nombre FROM cargo" ;  
 				        
 				        $results = array();  
 
@@ -41,10 +41,10 @@ $Nombre = $cargo->getNombre();
 
 					}
 public function eliminar(cargo $cargo) {
-                    $Id = $cargo->getId();
+                    $IdCargo = $cargo->getIdCargo();
 
 
-                    $sql = "DELETE FROM cargo WHERE Id = $Id ";
+                    $sql = "DELETE FROM cargo WHERE IdCargo = $IdCargo ";
                     $stmt = $this->db->prepare($sql);
                     $result = $stmt->execute();
                     if (!$result) {

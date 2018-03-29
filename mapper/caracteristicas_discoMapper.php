@@ -7,7 +7,7 @@
          class caracteristicas_discoMapper extends Mapper{  
   public function listarcaracteristicas_disco() {  
 
-						$sql = "SELECT id, gb, conexion, tipoDisco_id FROM caracteristicas_disco" ;  
+						$sql = "SELECT idcCaracteristicas_disco, gb, conexion, tipoDisco_id FROM caracteristicas_disco" ;  
 				        
 				        $results = array();  
 
@@ -43,10 +43,10 @@ $tipoDisco_id = $caracteristicas_disco->gettipoDisco_id();
 
 					}
 public function eliminar(caracteristicas_disco $caracteristicas_disco) {
-                    $id = $caracteristicas_disco->getid();
+                    $idcCaracteristicas_disco = $caracteristicas_disco->getidcCaracteristicas_disco();
 
 
-                    $sql = "DELETE FROM caracteristicas_disco WHERE id = $id ";
+                    $sql = "DELETE FROM caracteristicas_disco WHERE idcCaracteristicas_disco = $idcCaracteristicas_disco ";
                     $stmt = $this->db->prepare($sql);
                     $result = $stmt->execute();
                     if (!$result) {

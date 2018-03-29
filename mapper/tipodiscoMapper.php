@@ -7,7 +7,7 @@
          class tipodiscoMapper extends Mapper{  
   public function listartipodisco() {  
 
-						$sql = "SELECT id, tipoDiscocol FROM tipodisco" ;  
+						$sql = "SELECT idTipoDisco, tipoDiscocol FROM tipodisco" ;  
 				        
 				        $results = array();  
 
@@ -20,11 +20,11 @@
 				        return $results; 
 
 			    	}    public function creartipodisco(tipodisco $tipodisco) {
-$id = $tipodisco->getid(); 
+$idTipoDisco = $tipodisco->getidTipoDisco(); 
 $tipoDiscocol = $tipodisco->gettipoDiscocol(); 
  
 
-        			$sql = "INSERT INTO tipodisco (id,tipoDiscocol) VALUES ('$id','$tipoDiscocol')"; 
+        			$sql = "INSERT INTO tipodisco (idTipoDisco,tipoDiscocol) VALUES ('$idTipoDisco','$tipoDiscocol')"; 
 
         			$stmt   = $this->db->prepare($sql);
 
@@ -42,10 +42,10 @@ $tipoDiscocol = $tipodisco->gettipoDiscocol();
 
 					}
 public function eliminar(tipodisco $tipodisco) {
-                    $id = $tipodisco->getid();
+                    $idTipoDisco = $tipodisco->getidTipoDisco();
 
 
-                    $sql = "DELETE FROM tipodisco WHERE id = $id ";
+                    $sql = "DELETE FROM tipodisco WHERE idTipoDisco = $idTipoDisco ";
                     $stmt = $this->db->prepare($sql);
                     $result = $stmt->execute();
                     if (!$result) {

@@ -7,7 +7,7 @@
          class estados_solucionMapper extends Mapper{  
   public function listarestados_solucion() {  
 
-						$sql = "SELECT id, estado FROM estados_solucion" ;  
+						$sql = "SELECT idEstados_solucion, estado FROM estados_solucion" ;  
 				        
 				        $results = array();  
 
@@ -41,10 +41,10 @@ $estado = $estados_solucion->getestado();
 
 					}
 public function eliminar(estados_solucion $estados_solucion) {
-                    $id = $estados_solucion->getid();
+                    $idEstados_solucion = $estados_solucion->getidEstados_solucion();
 
 
-                    $sql = "DELETE FROM estados_solucion WHERE id = $id ";
+                    $sql = "DELETE FROM estados_solucion WHERE idEstados_solucion = $idEstados_solucion ";
                     $stmt = $this->db->prepare($sql);
                     $result = $stmt->execute();
                     if (!$result) {

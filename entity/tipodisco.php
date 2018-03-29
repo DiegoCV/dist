@@ -1,6 +1,6 @@
 <?php 
   class tipodisco{  
- private $id ; 
+ private $idTipoDisco ; 
  private $tipoDiscocol ; 
   public function __construct(array $data = null) { 
  if (!is_null($data)) { 
@@ -11,23 +11,23 @@
 
 				            }
 
-				            $this->id = $data['id']; 
+				            $this->idTipoDisco = $data['idTipoDisco']; 
 $this->tipoDiscocol = $data['tipoDiscocol']; 
  
 
 				        }
 
     }
-public function setid($id){ 
- $this->id = $id; 
+public function setidTipoDisco($idTipoDisco){ 
+ $this->idTipoDisco = $idTipoDisco; 
  return $this; 
 }
 public function settipoDiscocol($tipoDiscocol){ 
  $this->tipoDiscocol = $tipoDiscocol; 
  return $this; 
 }
-public function getid(){ 
- return $this->id; 
+public function getidTipoDisco(){ 
+ return $this->idTipoDisco; 
 }
 public function gettipoDiscocol(){ 
  return $this->tipoDiscocol; 

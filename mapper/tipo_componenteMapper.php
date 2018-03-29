@@ -7,7 +7,7 @@
          class tipo_componenteMapper extends Mapper{  
   public function listartipo_componente() {  
 
-						$sql = "SELECT id, nombre FROM tipo_componente" ;  
+						$sql = "SELECT idTipo_componente, nombre FROM tipo_componente" ;  
 				        
 				        $results = array();  
 
@@ -41,10 +41,10 @@ $nombre = $tipo_componente->getnombre();
 
 					}
 public function eliminar(tipo_componente $tipo_componente) {
-                    $id = $tipo_componente->getid();
+                    $idTipo_componente = $tipo_componente->getidTipo_componente();
 
 
-                    $sql = "DELETE FROM tipo_componente WHERE id = $id ";
+                    $sql = "DELETE FROM tipo_componente WHERE idTipo_componente = $idTipo_componente ";
                     $stmt = $this->db->prepare($sql);
                     $result = $stmt->execute();
                     if (!$result) {

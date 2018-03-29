@@ -1,6 +1,6 @@
 <?php 
   class caracteristicas_disco{  
- private $id ; 
+ private $idcCaracteristicas_disco ; 
  private $gb ; 
  private $conexion ; 
  private $tipoDisco_id ; 
@@ -9,7 +9,7 @@
 
 				            if (array_key_exists('id', $data)) { 
 
-				                $this->id = $data['id']; 
+				                $this->idcCaracteristicas_disco = $data['idcCaracteristicas_disco']; 
  
 
 				            }
@@ -22,8 +22,8 @@ $this->tipoDisco_id = $data['tipoDisco_id'];
 				        }
 
     }
-public function setid($id){ 
- $this->id = $id; 
+public function setidcCaracteristicas_disco($idcCaracteristicas_disco){ 
+ $this->idcCaracteristicas_disco = $idcCaracteristicas_disco; 
  return $this; 
 }
 public function setgb($gb){ 
@@ -38,8 +38,8 @@ public function settipoDisco_id($tipoDisco_id){
  $this->tipoDisco_id = $tipoDisco_id; 
  return $this; 
 }
-public function getid(){ 
- return $this->id; 
+public function getidcCaracteristicas_disco(){ 
+ return $this->idcCaracteristicas_disco; 
 }
 public function getgb(){ 
  return $this->gb; 

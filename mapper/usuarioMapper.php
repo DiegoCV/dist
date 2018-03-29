@@ -1,63 +1,66 @@
-<?php
+<?php 
 
-include_once dirname(__FILE__) . '\Mapper.php';
+            include_once dirname(__FILE__) . '\Mapper.php';
 
-include_once substr(getcwd(), 0, 26) . '\entity\usuario.php';
+            include_once substr(getcwd(), 0,26).'\entity\usuario.php';
 
-class usuarioMapper extends Mapper {
+         class usuarioMapper extends Mapper{  
+  public function listarusuario() {  
 
-    public function listarusuario() {
+						$sql = "SELECT IdUsuario, Nombre, Contraseña, Estado, correo, Cargo_id FROM usuario" ;  
+				        
+				        $results = array();  
 
-        $sql = "SELECT Id, Nombre, Contraseña, Estado, correo, Cargo_id FROM usuario";
+				        foreach ($this->db->query($sql) as $fila) { 
 
-        $results = array();
+				            array_push($results, new usuario($fila)); 
 
-        foreach ($this->db->query($sql) as $fila) {
+				        } 
 
-            array_push($results, new usuario($fila));
-        }
+				        return $results; 
 
-        return $results;
-    }
+			    	}    public function crearusuario(usuario $usuario) {
+$IdUsuario = $usuario->getIdUsuario(); 
+$Nombre = $usuario->getNombre(); 
+$Contraseña = $usuario->getContraseña(); 
+$Estado = $usuario->getEstado(); 
+$correo = $usuario->getcorreo(); 
+$Cargo_id = $usuario->getCargo_id(); 
+ 
 
-    public function crearusuario(usuario $usuario) {
-        $Nombre = $usuario->getNombre();
-        $Contraseña = $usuario->getContraseña();
-        $Estado = $usuario->getEstado();
-        $correo = $usuario->getcorreo();
-        $Cargo_id = $usuario->getCargo_id();
+        			$sql = "INSERT INTO usuario (IdUsuario,Nombre,Contraseña,Estado,correo,Cargo_id) VALUES ('$IdUsuario','$Nombre','$Contraseña','$Estado','$correo','$Cargo_id')"; 
+
+        			$stmt   = $this->db->prepare($sql);
+
+    				$result = $stmt->execute();
+
+					    if (!$result) {
+
+					        throw new Exception("couldnotsaverecord");
+
+					    } else {
+
+					        echo "GUARDADOBIEN";
+
+					    }
+
+					}
+public function eliminar(usuario $usuario) {
+                    $IdUsuario = $usuario->getIdUsuario();
 
 
-        $sql = "INSERT INTO usuario (Nombre,Contraseña,Estado,correo,Cargo_id) VALUES ('$Nombre','$Contraseña','$Estado','$correo','$Cargo_id')";
-
-        $stmt = $this->db->prepare($sql);
-
-        $result = $stmt->execute();
-
-        if (!$result) {
-
-            throw new Exception("couldnotsaverecord");
-        } else {
-
-            echo "GUARDADOBIEN";
-        }
-    }
-
-    public function eliminar(usuario $usuario) {
-        $Id = $usuario->getId();
+                    $sql = "DELETE FROM usuario WHERE IdUsuario = $IdUsuario ";
+                    $stmt = $this->db->prepare($sql);
+                    $result = $stmt->execute();
+                    if (!$result) {
+                        throw new Exception("No se pudo eliminar");
+                    } else {
+                        echo "eliminado con exito";
+                    }
+                }
 
 
-        $sql = "DELETE FROM usuario WHERE Id = $Id ";
-        $stmt = $this->db->prepare($sql);
-        $result = $stmt->execute();
-        if (!$result) {
-            throw new Exception("No se pudo eliminar");
-        } else {
-            echo "eliminado con exito";
-        }
-    }
-    
-    public function validar(usuario $usuario) {
+                   public function validar(usuario $usuario) {
         $id = $usuario->getCargo_id();
         $con = $usuario->getContraseña();
        // echo $id ." ". $con;
@@ -71,5 +74,4 @@ class usuarioMapper extends Mapper {
         }
         
     }
-
-}
+            }

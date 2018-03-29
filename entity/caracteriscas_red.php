@@ -1,6 +1,6 @@
 <?php 
   class caracteriscas_red{  
- private $id ; 
+ private $idCaracteriscas_red ; 
  private $ip ; 
  private $mascara ; 
  private $puerta_enlace ; 
@@ -11,7 +11,7 @@
 
 				            if (array_key_exists('id', $data)) { 
 
-				                $this->id = $data['id']; 
+				                $this->idCaracteriscas_red = $data['idCaracteriscas_red']; 
  
 
 				            }
@@ -26,8 +26,8 @@ $this->dns2 = $data['dns2'];
 				        }
 
     }
-public function setid($id){ 
- $this->id = $id; 
+public function setidCaracteriscas_red($idCaracteriscas_red){ 
+ $this->idCaracteriscas_red = $idCaracteriscas_red; 
  return $this; 
 }
 public function setip($ip){ 
@@ -50,8 +50,8 @@ public function setdns2($dns2){
  $this->dns2 = $dns2; 
  return $this; 
 }
-public function getid(){ 
- return $this->id; 
+public function getidCaracteriscas_red(){ 
+ return $this->idCaracteriscas_red; 
 }
 public function getip(){ 
  return $this->ip; 

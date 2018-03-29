@@ -7,7 +7,7 @@
          class solucionMapper extends Mapper{  
   public function listarsolucion() {  
 
-						$sql = "SELECT id, problema_idProblema, estados_solucion_id, caracteristica FROM solucion" ;  
+						$sql = "SELECT problema_idProblema, estados_solucion_id, caracteristica FROM solucion" ;  
 				        
 				        $results = array();  
 
@@ -43,10 +43,9 @@ $caracteristica = $solucion->getcaracteristica();
 
 					}
 public function eliminar(solucion $solucion) {
-                    $id = $solucion->getid();
+                    
 
-
-                    $sql = "DELETE FROM solucion WHERE id = $id ";
+                    $sql = "DELETE FROM solucion WHERE ";
                     $stmt = $this->db->prepare($sql);
                     $result = $stmt->execute();
                     if (!$result) {

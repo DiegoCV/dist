@@ -7,7 +7,7 @@
          class tipo_pantallaMapper extends Mapper{  
   public function listartipo_pantalla() {  
 
-						$sql = "SELECT id, tipo_pantalla FROM tipo_pantalla" ;  
+						$sql = "SELECT idTipo_pantalla, tipo_pantalla FROM tipo_pantalla" ;  
 				        
 				        $results = array();  
 
@@ -20,11 +20,11 @@
 				        return $results; 
 
 			    	}    public function creartipo_pantalla(tipo_pantalla $tipo_pantalla) {
-$id = $tipo_pantalla->getid(); 
+$idTipo_pantalla = $tipo_pantalla->getidTipo_pantalla(); 
 $tipo_pantalla = $tipo_pantalla->gettipo_pantalla(); 
  
 
-        			$sql = "INSERT INTO tipo_pantalla (id,tipo_pantalla) VALUES ('$id','$tipo_pantalla')"; 
+        			$sql = "INSERT INTO tipo_pantalla (idTipo_pantalla,tipo_pantalla) VALUES ('$idTipo_pantalla','$tipo_pantalla')"; 
 
         			$stmt   = $this->db->prepare($sql);
 
@@ -42,10 +42,10 @@ $tipo_pantalla = $tipo_pantalla->gettipo_pantalla();
 
 					}
 public function eliminar(tipo_pantalla $tipo_pantalla) {
-                    $id = $tipo_pantalla->getid();
+                    $idTipo_pantalla = $tipo_pantalla->getidTipo_pantalla();
 
 
-                    $sql = "DELETE FROM tipo_pantalla WHERE id = $id ";
+                    $sql = "DELETE FROM tipo_pantalla WHERE idTipo_pantalla = $idTipo_pantalla ";
                     $stmt = $this->db->prepare($sql);
                     $result = $stmt->execute();
                     if (!$result) {

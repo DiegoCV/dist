@@ -7,11 +7,12 @@
   public function __construct(array $data = null) { 
  if (!is_null($data)) { 
 
+				            if (array_key_exists('id', $data)) { 
 
 				                $this->idProblema = $data['idProblema']; 
  
 
-				     
+				            }
 
 				            $this->problema = $data['problema']; 
 $this->Equipo_idEquipo = $data['Equipo_idEquipo']; 

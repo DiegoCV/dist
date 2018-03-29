@@ -7,7 +7,7 @@
          class caracteristicas_impresorasMapper extends Mapper{  
   public function listarcaracteristicas_impresoras() {  
 
-						$sql = "SELECT id, caracteriscas_red_id, tipo_impresion_id FROM caracteristicas_impresoras" ;  
+						$sql = "SELECT idCaracteristicas_impresoras, caracteriscas_red_id, tipo_impresion_id FROM caracteristicas_impresoras" ;  
 				        
 				        $results = array();  
 
@@ -42,10 +42,10 @@ $tipo_impresion_id = $caracteristicas_impresoras->gettipo_impresion_id();
 
 					}
 public function eliminar(caracteristicas_impresoras $caracteristicas_impresoras) {
-                    $id = $caracteristicas_impresoras->getid();
+                    $idCaracteristicas_impresoras = $caracteristicas_impresoras->getidCaracteristicas_impresoras();
 
 
-                    $sql = "DELETE FROM caracteristicas_impresoras WHERE id = $id ";
+                    $sql = "DELETE FROM caracteristicas_impresoras WHERE idCaracteristicas_impresoras = $idCaracteristicas_impresoras ";
                     $stmt = $this->db->prepare($sql);
                     $result = $stmt->execute();
                     if (!$result) {

@@ -7,7 +7,7 @@
          class caracteristicas_memoriaMapper extends Mapper{  
   public function listarcaracteristicas_memoria() {  
 
-						$sql = "SELECT id, gb, tipo FROM caracteristicas_memoria" ;  
+						$sql = "SELECT idCaracteristicas_memoria, gb, tipo FROM caracteristicas_memoria" ;  
 				        
 				        $results = array();  
 
@@ -42,10 +42,10 @@ $tipo = $caracteristicas_memoria->gettipo();
 
 					}
 public function eliminar(caracteristicas_memoria $caracteristicas_memoria) {
-                    $id = $caracteristicas_memoria->getid();
+                    $idCaracteristicas_memoria = $caracteristicas_memoria->getidCaracteristicas_memoria();
 
 
-                    $sql = "DELETE FROM caracteristicas_memoria WHERE id = $id ";
+                    $sql = "DELETE FROM caracteristicas_memoria WHERE idCaracteristicas_memoria = $idCaracteristicas_memoria ";
                     $stmt = $this->db->prepare($sql);
                     $result = $stmt->execute();
                     if (!$result) {

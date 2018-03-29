@@ -7,7 +7,7 @@
          class componentesMapper extends Mapper{  
   public function listarcomponentes() {  
 
-						$sql = "SELECT id, Equipo_idEquipo, marca, modelo, serial, stiker_activo, fecha_compra, caracteristicas_pantalla_id, caracteristicas_memoria_id, caracteristicas_disco_id, caracteristicas_portatil_id, caracteristicas_todoenuno_id, tipo_componente_id, caracteristicas_impresoras_id FROM componentes" ;  
+						$sql = "SELECT idComponentes, Equipo_idEquipo, marca, modelo, serial, stiker_activo, fecha_compra, caracteristicas_pantalla_id, caracteristicas_memoria_id, caracteristicas_impresoras_id, caracteristicas_disco_id, caracteristicas_portatil_id, caracteristicas_todoenuno_id, tipo_componente_id, caracteristicas_pc_idcaracteristicas_pc FROM componentes" ;  
 				        
 				        $results = array();  
 
@@ -20,6 +20,7 @@
 				        return $results; 
 
 			    	}    public function crearcomponentes(componentes $componentes) {
+$idComponentes = $componentes->getidComponentes(); 
 $Equipo_idEquipo = $componentes->getEquipo_idEquipo(); 
 $marca = $componentes->getmarca(); 
 $modelo = $componentes->getmodelo(); 
@@ -28,15 +29,16 @@ $stiker_activo = $componentes->getstiker_activo();
 $fecha_compra = $componentes->getfecha_compra(); 
 $caracteristicas_pantalla_id = $componentes->getcaracteristicas_pantalla_id(); 
 $caracteristicas_memoria_id = $componentes->getcaracteristicas_memoria_id(); 
+$caracteristicas_impresoras_id = $componentes->getcaracteristicas_impresoras_id(); 
 $caracteristicas_disco_id = $componentes->getcaracteristicas_disco_id(); 
 $caracteristicas_portatil_id = $componentes->getcaracteristicas_portatil_id(); 
 $caracteristicas_todoenuno_id = $componentes->getcaracteristicas_todoenuno_id(); 
 $tipo_componente_id = $componentes->gettipo_componente_id(); 
-$caracteristicas_impresoras_id = $componentes->getcaracteristicas_impresoras_id(); 
+$caracteristicas_pc_idcaracteristicas_pc = $componentes->getcaracteristicas_pc_idcaracteristicas_pc(); 
  
 
-        			$sql = "INSERT INTO componentes (Equipo_idEquipo,marca,modelo,serial,stiker_activo,fecha_compra,caracteristicas_pantalla_id,caracteristicas_memoria_id,caracteristicas_disco_id,caracteristicas_portatil_id,caracteristicas_todoenuno_id,tipo_componente_id,caracteristicas_impresoras_id) VALUES ($Equipo_idEquipo,'$marca','$modelo','$serial','$stiker_activo','$fecha_compra',$caracteristicas_pantalla_id,$caracteristicas_memoria_id,$caracteristicas_disco_id,$caracteristicas_portatil_id,$caracteristicas_todoenuno_id,'$tipo_componente_id',$caracteristicas_impresoras_id)"; 
-                    echo($sql);
+        			$sql = "INSERT INTO componentes (idComponentes,Equipo_idEquipo,marca,modelo,serial,stiker_activo,fecha_compra,caracteristicas_pantalla_id,caracteristicas_memoria_id,caracteristicas_impresoras_id,caracteristicas_disco_id,caracteristicas_portatil_id,caracteristicas_todoenuno_id,tipo_componente_id,caracteristicas_pc_idcaracteristicas_pc) VALUES ('$idComponentes','$Equipo_idEquipo','$marca','$modelo','$serial','$stiker_activo','$fecha_compra','$caracteristicas_pantalla_id','$caracteristicas_memoria_id','$caracteristicas_impresoras_id','$caracteristicas_disco_id','$caracteristicas_portatil_id','$caracteristicas_todoenuno_id','$tipo_componente_id','$caracteristicas_pc_idcaracteristicas_pc')"; 
+
         			$stmt   = $this->db->prepare($sql);
 
     				$result = $stmt->execute();
@@ -47,17 +49,17 @@ $caracteristicas_impresoras_id = $componentes->getcaracteristicas_impresoras_id(
 
 					    } else {
 
-					        return $this->db->lastInsertId();
+					        echo "GUARDADOBIEN";
 
 					    }
 
 					}
 public function eliminar(componentes $componentes) {
-                    $id = $componentes->getid();
+                    $idComponentes = $componentes->getidComponentes();
 $serial = $componentes->getserial();
 
 
-                    $sql = "DELETE FROM componentes WHERE id = $id AND serial = $serial ";
+                    $sql = "DELETE FROM componentes WHERE idComponentes = $idComponentes AND serial = $serial ";
                     $stmt = $this->db->prepare($sql);
                     $result = $stmt->execute();
                     if (!$result) {
